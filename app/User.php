@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,13 +9,20 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function market(){
+        return $this->belongsTo('App\Market');
+    }
+
+    public function ikan(){
+        return $this->belongsToMany('App\Ikan','ikan_user')->withpivot('harga_ikan','stok');
+    }
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'firstname','lastname','username', 'email', 'password','phonenumber','role','market_id',
     ];
 
     /**
@@ -36,4 +42,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+   
 }
