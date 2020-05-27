@@ -24,8 +24,10 @@ Route::get('/profile', 'UserController@edit')->name('profile')->middleware('auth
 Route::post('/edit', 'UserController@update')->name('edit')->middleware('auth');
 
 /* Customer ------------------------------------------------------------------*/
-Route::get('/customer/{id}', 'CustomerController@show')->name('show')->middleware('auth','customer');
+Route::get('/customer/pasar/{id}', 'CustomerController@show')->name('show')->middleware('auth','customer');
+Route::post('/customer/selesai', 'CustomerController@order')->name('order')->middleware('auth','customer');
 Route::get('/customer/beli/{user_id}/{ikan_id}', 'CustomerController@menuBeli')->name('pembelian')->middleware('auth','customer');
+
 
 /* Seller ------------------------------------------------------------------*/
 Route::get('/seller/tambahikan', 'SellerController@add')->name('add')->middleware('auth','seller');

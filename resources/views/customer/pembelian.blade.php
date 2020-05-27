@@ -18,8 +18,39 @@
         </div>
         <br>
     </div>
-    <div class=" col col-md-3">
-    <button class="btn btn-primary">BUY</button>
+    <div class=" col col-md-6">
+        <form action="{{ route('order') }}" method="post"> 
+        @csrf
+        @method('post')
+            <div class="form-group row">
+                <label for="jumlah" class="col-md-4 col-form-label text-md-right">Jumlah (kg)</label>
+
+                <div class="col-md-4">
+                    <input  id="jumlah" type="text" class="form-control @error('jumlah') is-invalid @enderror" name="jumlah" autofocus>
+                    @error('jumlah')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                    @enderror
+                </div>
+            <button type="submit" class="btn btn-primary">BUY</button>
+            </div>
+            <div class="form-group row">
+                <label for="catatan" class="col-md-4 col-form-label text-md-right">Catatan</label>
+                <div class="col-md-4">
+                    <textarea name="catatan" id="catatan" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <input type="hidden" value="{{ $ikan->harga_ikan }}" name="harga">
+            <input type="hidden" value="{{ $ikan->id }}" name="id">
+            <input type="hidden" value="{{ $ikan->stok }}" name="stok">
+            <input type="hidden" value="{{ $a->name }}" name="namaikan">
+            <input type="hidden" value="{{ auth()->user()->firstname }}" name="pembeli">
+            <input type="hidden" value="{{ $pedagang->market_id }}" name="pasar">
+            <input type="hidden" value="{{ $pedagang->id }}" name="penjual">
+            
+        </form>
     </div>
 </div>
+
 @endsection
