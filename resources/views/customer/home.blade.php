@@ -38,7 +38,7 @@
 
 <div class="container text-center d-flex justify-content-center align-items-center h-75">
 @foreach($market as $m)
-    <a href="/customer/{{ $m->id }}"> {{ $m->name }} </a><br>
+    <a href="customer/pasar/{{ $m->id }}"> {{ $m->name }} </a><br>
 @endforeach
 
 
