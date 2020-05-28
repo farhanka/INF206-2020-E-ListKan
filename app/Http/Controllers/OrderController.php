@@ -75,8 +75,8 @@ class OrderController extends Controller
 
     public function history(){
         $user = auth()->user();
-        $seller = DB::table('orders')->where('penjual', $user->firstname)->get();
-        $customer = DB::table('orders')->where('pembeli', $user->firstname)->get();
+        $seller = DB::table('orders')->where('penjual', $user->firstname)->orderBy('created_at', 'DESC')->get();
+        $customer = DB::table('orders')->where('pembeli', $user->firstname)->orderBy('created_at','DESC')->get();
 
         if($user->role == 'Seller'){
         return view('seller.history', compact('seller','user'));
