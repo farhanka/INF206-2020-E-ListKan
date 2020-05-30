@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <div class="container col-6 my-4">
+    <div class="container col-6 my-4 mh-75">
     @foreach($seller as $s)
         <div class="card  mb-3">
         <div class="card-header d-flex justify-content-between">

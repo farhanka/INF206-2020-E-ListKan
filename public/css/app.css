@@ -1,0 +1,21 @@
+.mh-75{
+    min-height: 75vh;
+}
+
+.mh-50{
+    min-height: 50vh;
+}
+.mh-30{
+    min-height: 30vh;
+}
+
+
+#ikonpasar{
+    width:150px;
+    height:150px;
+}
+
+#ikonpasar:hover{
+    width:151px;
+    box-shadow: aqua;
+}

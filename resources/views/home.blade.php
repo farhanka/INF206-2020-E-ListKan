@@ -31,6 +31,7 @@
 @endsection
 
 @section('content')
+
 <div class="container h-75">
     <div class="text-center justify-content-center d-flex pt-5">
         <div class="col-md-8">
