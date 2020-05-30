@@ -24,9 +24,10 @@ Route::get('/profile', 'UserController@edit')->name('profile')->middleware('auth
 Route::post('/edit', 'UserController@update')->name('edit')->middleware('auth');
 
 /* Customer ------------------------------------------------------------------*/
-Route::get('/customer/pasar/{id}', 'CustomerController@show')->name('show')->middleware('auth','customer');
-Route::post('/customer/selesai', 'CustomerController@order')->name('order')->middleware('auth','customer');
-Route::get('/customer/beli/{user_id}/{ikan_id}', 'CustomerController@menuBeli')->name('pembelian')->middleware('auth','customer');
+Route::get('/customer/pasar/{id}', 'OrderController@show')->name('show')->middleware('auth','customer');
+Route::post('/customer/selesai', 'OrderController@order')->name('order')->middleware('auth','customer');
+Route::get('/customer/beli/{user_id}/{ikan_id}', 'OrderController@menuBeli')->name('pembelian')->middleware('auth','customer');
+Route::get('/customer/history', 'OrderController@history')->middleware('auth','customer');
 
 
 /* Seller ------------------------------------------------------------------*/
@@ -36,3 +37,4 @@ Route::get('/seller/show', 'SellerController@show')->name('show')->middleware('a
 Route::get('/seller/edit/{id}', 'SellerController@edit')->name('editikan')->middleware('auth','seller');
 Route::post('/seller/edit/store', 'SellerController@update')->name('store')->middleware('auth','seller');
 Route::delete('/seller/hapus/{id}', 'SellerController@delete')->name('hapus')->middleware('auth','seller');
+Route::get('/seller/history', 'OrderController@history')->name('history')->middleware('auth','seller');

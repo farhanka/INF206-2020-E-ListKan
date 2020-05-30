@@ -8,9 +8,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Ikan;
 
-
 use App\Market;
-class CustomerController extends Controller
+class OrderController extends Controller
 {
     public function show($id){
         
@@ -43,7 +42,13 @@ class CustomerController extends Controller
             'jumlah' => ['required','integer', "between:1,$request->stok"],
         ]);
             
+        $pedagang = DB::table('users')->where('id', $request->penjual)->first();
+        DB::table('ikan_user')->where('id',$request->id)
+                ->update(
+                    ['stok' => $request->stok - $request->jumlah]);
+
         $market = DB::table('markets')->where('id', $request->pasar)->first();
+
         $data = [
             'harga' => $request->harga,
             'bobot' => $request->jumlah,
@@ -54,12 +59,29 @@ class CustomerController extends Controller
             'catatan' => $request->catatan,
         ];
 
-            $pedagang = DB::table('users')->where('id', $request->penjual)->first();
-            DB::table('ikan_user')->where('id',$request->id)
-                ->update([
-                    'stok' => $request->stok - $request->jumlah
-                    ]);
+        DB::table('orders')->insert([
+            'order_id' => $data['code'],
+            'ikan' => $request->namaikan,
+            'bobot' => $request->jumlah,
+            'harga' => $request->harga*$request->jumlah,
+            'pasar' => $market->name,
+            'pembeli' => $request->pembeli,
+            'penjual' => $pedagang->firstname,
+            'catatan' => $request->catatan,
+            'created_at' =>  now(),
+        ]);
+            return view('customer.selesai', compact('data','market','pedagang'));
+    }
 
-                    return view('customer.history', compact('data','market', 'pedagang'));
+    public function history(){
+        $user = auth()->user();
+        $seller = DB::table('orders')->where('penjual', $user->firstname)->orderBy('created_at', 'DESC')->get();
+        $customer = DB::table('orders')->where('pembeli', $user->firstname)->orderBy('created_at','DESC')->get();
+
+        if($user->role == 'Seller'){
+        return view('seller.history', compact('seller','user'));
+        }else{
+        return view('customer.history', compact('customer','user'));
+        }
     }
 }

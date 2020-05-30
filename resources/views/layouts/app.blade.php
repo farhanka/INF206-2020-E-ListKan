@@ -34,8 +34,8 @@
             </div>
         </div>
     </nav>
-
-    @yield('content')
+     @yield('content')
+  
 
     <div class="container-fluid bg-dark copyright">
         Copyright &copy 2020 ListKan
@@ -74,4 +74,5 @@ body{
     height: 20vh;
     bottom: 0px;
 }
+
 </style>
