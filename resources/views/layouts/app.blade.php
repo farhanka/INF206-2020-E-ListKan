@@ -38,7 +38,7 @@
   
 
     <div class="container-fluid bg-dark copyright">
-        Copyright &copy 2020 ListKan
+        Copyright &copy 2020 ListKan 
     </div>
 
     

@@ -17,8 +17,9 @@ class OrderController extends Controller
         $pedagang = User::where('role','Seller')
                     ->where('market_id', $id)
                     ->get();
+        $market = Market::find($id);
         if($pedagang->count() != 0){
-            return view('customer.daftarIkan',compact('user','pedagang'));
+            return view('customer.daftarIkan',compact('user','pedagang','market'));
         }else{
             return redirect('home')->with('null','Belum ada data ikan di pasar '.$id);
         }

@@ -33,7 +33,7 @@
                                     </span>
                     @enderror
                 </div>
-            <button type="submit" class="btn btn-primary">BUY</button>
+            <button type="submit" class="btn btn-primary mt-1 ml-2">BELI</button>
             </div>
             <div class="form-group row">
                 <label for="catatan" class="col-md-4 col-form-label text-md-right">Catatan</label>
