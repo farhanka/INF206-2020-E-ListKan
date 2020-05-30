@@ -31,13 +31,13 @@
     <div class="row">
         @foreach($pedagang as $p)
             @foreach($p->ikan as $i)
-            <div class="col col-md-3" >
+            <div class="col col-5 col-md" >
                 <div class="card align-items-center">
-                    <img class="card-img-top w-75" src="{{ asset('img/ikan_default.png') }}" alt="Card image cap">
+                    <img class="card-img-top " src="{{ asset('img/ikan_default.png') }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ $i->name }}</h5>
                             <p class="card-text">Rp. {{ $i->pivot->harga_ikan }}/ kg </p>
-                            <p class="card-text">Penjual : {{ $p->firstname }} {{ $p->lastname }} </p>
+                            <!-- <p class="card-text">Penjual : {{ $p->firstname }} {{ $p->lastname }} </p> -->
                             <a href="/customer/beli/{{ $i->pivot->user_id }}/{{ $i->pivot->ikan_id }}" class="btn btn-primary">{{ $i->pivot->ikan_id }}</a>
                         </div>
                 </div>

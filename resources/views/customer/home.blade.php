@@ -7,15 +7,18 @@
         {{ $user->username }} <span class="caret"></span>
     </a>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/customer/history">
+            {{ __('History') }}
+        </a>
+        <a class="dropdown-item" href="{{ route('profile') }}" >
+            {{ __('Edit Profile') }}
+        </a>
         <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
             {{ __('Logout') }}
         </a>
-        <a class="dropdown-item" href="{{ route('profile') }}"
-            >
-            {{ __('Edit Profile') }}
-        </a>
+        
 
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
@@ -38,7 +41,7 @@
 
 <div class="container text-center d-flex justify-content-center align-items-center h-75">
 @foreach($market as $m)
-    <a href="/customer/{{ $m->id }}"> {{ $m->name }} </a><br>
+    <a href="customer/pasar/{{ $m->id }}"> {{ $m->name }} </a><br>
 @endforeach
 
 
