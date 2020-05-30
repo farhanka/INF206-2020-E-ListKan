@@ -33,7 +33,7 @@
         <div class="container container-sm">
             <h1 >ListKan</h1>
             Selamat Datang {{ $user->firstname }} <br>
-            {{ date('d-m-Y') }}
+            {{ date('d-m-Y h:i:s') }}
         </div>
     </div>
     <div class="container d-flex justify-content-center align-items-center">
