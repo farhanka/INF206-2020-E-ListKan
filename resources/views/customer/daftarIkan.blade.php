@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container text-center mh-75">
-        <h3 class="py-4"> Pasar {{ $market->name }} </h3>
+        <h3 class="py-4"> {{ $market->name }} </h3>
     <div class="row ">
         @foreach($pedagang as $p)
             @foreach($p->ikan as $i)
