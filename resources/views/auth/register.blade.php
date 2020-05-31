@@ -1,10 +1,16 @@
-@extends('layouts.app')
-@section('title', 'Register')
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register Page</title>
+
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
-@section('content')
-<div class="container mt-5 ">
+
+</head>
+<body>
+
+<div class="container  pt-5 hi-95">
     <div class="d-flex justify-content-center">
         <div class="container">
             <div class="card mh-75 w-100 ">
@@ -129,10 +135,12 @@
                 </form>
 
                 <div class="container mt-3">
-                        <a href="{{ route('login') }}" class="btn btn-block btn-secondary">Sudah punya Akun</a>
+                        <a href="{{ route('login') }}" class="btn btn-outline-warning">Sudah punya Akun</a>
                 </div>
             </div>   
         </div> <!-- container kosong -->
     </div>
 </div>
-@endsection
+</body>
+<footer class=" text-center text-warning">Listkan &copy 2020</footer>
+</html>
