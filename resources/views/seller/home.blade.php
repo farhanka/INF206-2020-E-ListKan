@@ -46,10 +46,11 @@
         </div>
     @endif
     </div>
-    <div class="container h-50 text-center align-items-center">
+    <div class="container h-50 text-center justify-content-center align-items-center d-flex ">
         @if($user->market_id != null)
-        <a href="{{ route('add') }}" class="btn btn-primary mr-4"> Upload </a>
-        <a href="{{  route('show') }}" class="btn btn-primary"> Lapak </a>
+        
+        <a  href="{{ route('add') }}" class="btn-lg btn-success mr-4 "><i class="fas fa-fish fa-2x"> Tambah Ikan</i></a>
+        <a href="{{  route('show') }}" class="btn-lg btn-primary"><i class="fas fa-list-alt fa-2x"> Lihat Lapak</i></a>
         @else
         <div class="row py-3">
             <div class="col">
