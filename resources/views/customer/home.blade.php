@@ -1,5 +1,6 @@
 @extends ('layouts.app')
 @section('title', 'Home - Pengunjung')
+ 
 
 @section('navtext')
 <div class=" dropdown">
@@ -32,7 +33,7 @@
     <div class="container container-sm">
         <h1 >ListKan</h1>
         Selamat Datang {{ $user->firstname }} <br>
-        {{ date('d-m-Y h:i:s') }}
+        {{ date('d-m-Y h:i') }}
     </div>
 </div>
 <div class="container">

@@ -48,9 +48,7 @@
        @endforeach
 
         @else
-        
-            <h2>Tidak ada data ikan.</h2>
-        
+        <tr><td colspan="5"><h5>Tidak ada data ikan</h5></td></tr>
         @endif
     </table> 
 </div>

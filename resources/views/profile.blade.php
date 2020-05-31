@@ -16,7 +16,7 @@
 
                 <div class="card-header">{{ __('Edit Profile') }}
                     <div class="float-right">{{ $user->firstname }} - {{  $user->role  }}
-                     @if($user->role == 'Seller' && $user->market_id != null)
+                     @if($user->role == 'Seller' && $user->market_id != null && is_numeric($user->market_id))
                     - {{ $user->market->name }}
                     @endif</div>
                 </div>
@@ -87,6 +87,7 @@
                             <label for="market" class="col-md-4 col-form-label text-md-right ">{{ __('Market') }}</label>
                                 <div class="col-md-6">
                                     <select class="custom-select" id="inputGroupSelect02" name="market">
+                                    
                                    @foreach($market as $m)
                                    <option value="{{ $m->id }}">{{ $m->name }}</option>
                                    @endforeach
