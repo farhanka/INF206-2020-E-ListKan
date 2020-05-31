@@ -44,6 +44,7 @@ class OrderController extends Controller
         ]);
             
         $pedagang = DB::table('users')->where('id', $request->penjual)->first();
+        $user = auth()->user();
         DB::table('ikan_user')->where('id',$request->id)
                 ->update(
                     ['stok' => $request->stok - $request->jumlah]);
@@ -71,7 +72,7 @@ class OrderController extends Controller
             'catatan' => $request->catatan,
             'created_at' =>  now(),
         ]);
-            return view('customer.selesai', compact('data','market','pedagang'));
+            return view('customer.selesai', compact('data','market','pedagang','user'));
     }
 
     public function history(){
