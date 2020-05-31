@@ -11,9 +11,15 @@
 <body>
 <div class="container h-100">
 	<div class="d-flex justify-content-center h-100">
-		<div class="card">
+			<div class="card">
 			<div class="card-header text-center">
-				<h3>Login to ListKan</h3>
+			
+			@if ( Session::has('message'))
+    		<div class="alert alert-success" role="alert">
+        		{{ Session::get('message') }}
+    		</div>
+			@endif
+				<h3>Login - ListKan</h3>
 
 			</div>
 			<div class="card-body">
@@ -45,7 +51,7 @@
 
                     @if (Route::has('password.request'))
                     <div class="d-flex justify-content-center float-left">
-                        <a class="text-warning" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
+                        <a class="text-warning" href="{{ route('password.request') }}">{{ __('Lupa Password?') }}</a>
                     </div>
                     @endif
 
@@ -58,7 +64,7 @@
 			</div>
 			<div class="card-footer ">
                 <div class="d-flex justify-content-center">
-					<a class="text-warning" href="{{ route('register') }}">Don't have account yet?</a>
+					<a class="text-warning" href="{{ route('register') }}">Belum punya akun?</a>
                 </div>
                 <hr>
 

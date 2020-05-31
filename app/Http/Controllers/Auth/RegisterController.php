@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
+
+use Illuminate\Auth\Events\Registered;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -29,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = 'login';
 
     /**
      * Create a new controller instance.
@@ -78,4 +81,13 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    public function register(Request $request)
+{
+    $this->validator($request->all())->validate();
+
+    event(new Registered($user = $this->create($request->all())));
+
+    return redirect($this->redirectPath())->with('message', 'Pendaftaran berhasil!');
+}
 }

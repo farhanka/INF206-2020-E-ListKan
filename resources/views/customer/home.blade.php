@@ -45,23 +45,22 @@
     </div>
 @endif
 </div>
-
 <div class="container text-center justify-content-center align-items-center mh-50">
+@if($market->count() != 0)
     <h4>Pilih Pasar</h4>
-    <div class="row">
+        <div class="row">
         @foreach($market as $m)
-    <div class="col col-md col-6">
-    <a href="customer/pasar/{{ $m->id }}">
-         <img alt="..." src="{{ asset('img\pasar2.png') }}"
-         id="ikonpasar">
-         <h5 class="p-0">{{ $m->name }}</h5>
-    </a>
-    </div>
-    @endforeach
+            <div class="col col-md col-6">
+                <a href="customer/pasar/{{ $m->id }}">
+                    <img alt="..." src="{{ asset('img\pasar2.png') }}" id="ikonpasar">
+                    <h5 class="p-0">{{ $m->name }}</h5>
+                </a>
+            </div>
+        @endforeach
+        </div>
+@else
+    <h3> Belum ada data apapun disini <br> Silakan kembali di lain waktu. </h3>
+@endif
 </div>
 
-
-
-
-</div>
 @endsection
