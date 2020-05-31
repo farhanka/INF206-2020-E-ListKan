@@ -14,11 +14,28 @@ class MarketSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('id_ID');
-        for($i = 1; $i <= 5; $i++){
-            Market::create([
-                'name' => 'Pasar'.$i,
-                'address' => $faker->address,
-            ]);
-        }
+        // for($i = 1; $i <= 5; $i++){
+        //     Market::create([
+        //         'name' => 'Pasar'.$i,
+        //         'address' => $faker->address,
+        //     ]);
+        // }
+
+        Market::create([
+            'name' => 'Pasar Baru',
+            'address' => $faker->address,
+        ]);
+        Market::create([
+            'name' => 'Pasar Keutapang',
+            'address' => $faker->address,
+        ]);
+        Market::create([
+            'name' => 'Pasar Tua',
+            'address' => $faker->address,
+        ]);
+        Market::create([
+            'name' => 'Pasar Seutui',
+            'address' => $faker->address,
+        ]);
     }
 }
