@@ -1,48 +1,24 @@
 @extends ('layouts.app')
-@section('title', 'Home - Pengunjung')
+@section('title',  'Pasar' )
+<link rel="stylesheet" href="{{ asset('css\card.css') }}">
 
-@section('navtext')
-<div class=" dropdown">
-    <a id="navbarDropdown" class="btn btn-outline-info dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-        {{ $user->username }} <span class="caret"></span>
-    </a>
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-        </a>
-        <a class="dropdown-item" href="{{ route('profile') }}"
-            >
-            {{ __('Edit Profile') }}
-        </a>
-
-        
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
-    </div>
-</div>
-
-@endsection
 @section('content')
-<div class="container text-center d-flex justify-content-center align-items-center p-3">
-    <div class="row">
+<div class="container text-center mh-75">
+        <h3 class="py-4"> Pasar {{ $market->name }} </h3>
+    <div class="row ">
         @foreach($pedagang as $p)
             @foreach($p->ikan as $i)
-            <div class="col col-5 col-md" >
-                <div class="card align-items-center">
-                    <img class="card-img-top " src="{{ asset('img/ikan_default.png') }}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $i->name }}</h5>
-                            <p class="card-text">Rp. {{ $i->pivot->harga_ikan }}/ kg </p>
-                            <!-- <p class="card-text">Penjual : {{ $p->firstname }} {{ $p->lastname }} </p> -->
-                            <a href="/customer/beli/{{ $i->pivot->user_id }}/{{ $i->pivot->ikan_id }}" class="btn btn-primary">{{ $i->pivot->ikan_id }}</a>
-                        </div>
-                </div>
-                <br>
-            </div>
+            <li class="cards_item  d-flex justify-content-center">
+      <div class="card ">
+        <div class="card_image"><img src="{{ asset('img/ikan_default.png') }}"></div>
+        <div class="card_content">
+          <h2 class="card_title">{{ $i->name }}</h2>
+          <p class="card_text">Rp. {{ $i->pivot->harga_ikan }}/ kg</p>
+          <p class="card_text">Tersedia: {{ $i->pivot->stok }} kg</p>
+          <a href="/customer/beli/{{ $i->pivot->user_id }}/{{ $i->pivot->ikan_id }}" class="bttn card_btn">Beli</a>
+        </div>
+      </div>
+    </li>
             @endforeach
         @endforeach
     </div>
