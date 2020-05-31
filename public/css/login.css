@@ -4,11 +4,11 @@
 
 html,body{
 /* background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg'); */
-background-image: url('/img/maldives.jpg');
-background-size: cover;
+background-image: url('/img/bg1.jpg');
 background-repeat: no-repeat;
 height: 100%;
 font-family: 'Numans', sans-serif;
+background-size:auto;
 }
 
 .container{
