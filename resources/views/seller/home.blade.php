@@ -46,7 +46,7 @@
         </div>
     @endif
     </div>
-    <div class="container h-50 text-center justify-content-center align-items-center d-flex ">
+    <div class="container mh-50 text-center justify-content-center align-items-center d-flex ">
         @if($user->market_id != null)
         
         <a  href="{{ route('add') }}" class="btn-lg btn-success mr-4 "><i class="fas fa-fish fa-2x"> Tambah Ikan</i></a>
@@ -54,12 +54,9 @@
         @else
         <div class="row py-3">
             <div class="col">
-                <h4 >Satu langkah lagi, beritahu dimana anda berjualan.</h4> 
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-               <a href="{{ route('profile') }}" class="btn btn-primary">Lengkapi Profil</a>
+            <i class="fas fa-store fa-3x"> <br> Satu langkah lagi <br> Beritahu dimana anda berjualan.
+                <br> <a href="{{ route('profile') }}" class="btn btn-dark">Lengkapi Profil</a>
+            </i> 
             </div>
         </div>
         @endif

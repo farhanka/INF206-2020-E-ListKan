@@ -9,8 +9,8 @@
 
 </head>
 <body>
-<div class="container h-100">
-	<div class="d-flex justify-content-center h-100">
+<div class="container d-flex justify-content-center pt-5 hi-95">
+	<div class="d-flex justify-content-center">
 		<div class="card">
 			<div class="card-header text-center">
 			
@@ -73,4 +73,5 @@
 	</div>
 </div>
 </body>
+    <footer class=" text-center text-warning">Listkan &copy 2020</footer>
 </html>
