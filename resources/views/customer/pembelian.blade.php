@@ -1,12 +1,39 @@
 @extends ('layouts.app')
 @section('title', "Pembelian")
 
+@section('navtext')
+<div class=" dropdown">
+    <a id="navbarDropdown" class="btn btn-outline-info dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+    <i class="fas fa-user"></i> {{ $user->username }} <span class="caret"></span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+    <a class="dropdown-item" href="/customer/history">
+    <i class="fas fa-history"></i> {{ __('History') }}
+        </a>
+        <a class="dropdown-item" href="{{ route('profile') }}"
+            >
+    <i class="fas fa-user-edit"></i> {{ __('Edit Profile') }}
+        </a>
+        <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+            <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+        </a>
+        
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    </div>
+</div>
+@endsection
 @section('content')
 <div class="container">
     <div class="row  justify-content-center  align-items-center">
     <div class="col col-md-5 text-center">
         <div class="card align-items-center my-3">
-            <img class="card_image img" src="{{ asset('img/ikan_default.png') }}" alt="Card image cap">
+            <img class="card_image img" src="@if($ikan->picture == null) {{ asset('img\ikan_default.png') }}
+                          @else {{ asset('img/data/') }}/{{ $ikan->picture }} @endif" alt="Card image cap">
                 <div class="card-body">
                     <h4 class="card-title">{{ $a->name }}</h4>
                     <p class="card-text">Rp. {{ $ikan->harga_ikan }}/ kg </p>

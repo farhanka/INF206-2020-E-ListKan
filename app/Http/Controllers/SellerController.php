@@ -24,8 +24,9 @@ class SellerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function add()
-    {
-        return view('seller.add');
+    {   
+        $user = auth()->user();
+        return view('seller.add', compact('user'));
     }
 
     /**
@@ -115,7 +116,7 @@ class SellerController extends Controller
         $pic = $request->file('picture');
         if($pic != null){
             $pic_name = $pic->getClientOriginalName();
-            $path = 'img';
+            $path = 'img/data';
             $pic->move($path, $pic_name);
         }else{
             $pic_name = null;
