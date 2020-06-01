@@ -2,8 +2,8 @@
 @section('title', 'Tambah Ikan')
 
 @section('content')
-<div class="container d-flex justify-content-center align-items-center">
-<form class="bg-light p-5" action="{{ route('upload') }} " method="post">
+<div class="container d-flex justify-content-center align-items-center my-3">
+<form class="bg-blue rounded p-5" action="{{ route('upload') }} " method="post">
     @csrf
     <!-- @method('POST') -->
     <div class="text-center pb-3">
@@ -49,10 +49,10 @@
       </select>
     </div>
   
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="exampleFormControlFile1">Gambar Ikan</label>
     <input type="file" name="picture" class="form-control-file" id="exampleFormControlFile1">
-  </div>
+  </div> -->
   <button type="submit" class="btn btn-primary float-right">Upload</button>
 </form>
 </div>

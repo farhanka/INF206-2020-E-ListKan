@@ -2,7 +2,31 @@
 @section ('title','History')
 
 @section('content')
+@section('navtext')
+<div class=" dropdown">
+    <a id="navbarDropdown" class="btn btn-outline-info dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+        {{ $user->username }} <span class="caret"></span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/customer/history">
+            {{ __('History') }}
+        </a>
+        <a class="dropdown-item" href="{{ route('profile') }}" >
+            {{ __('Edit Profile') }}
+        </a>
+        <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+        
 
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    </div>
+</div>
+@endsection
     @if($customer->count() != 0)
     <div class="container col-6 my-4 ">
     @foreach($customer as $s)
@@ -23,7 +47,7 @@
                         </p>
                     </div>
                     <div class="col-6 card-title bg-warning">
-                        <p class="card-text" id="collapseExample">Catatan Pemesanan : <strong class="font-italic">{{ $s->catatan }}.</strong></p>
+                        <p class="card-text" id="collapseExample"><i class="fas fa-sticky-note  ">  Catatan Pemesanan :</i> <strong class="font-italic"> {{ $s->catatan }} </strong></p>
                     </div>
                 </div>
             </div>
@@ -33,9 +57,8 @@
     @else
     <div class="container mh-75 d-flex justify-content-center align-items-center">
         <div class="row justify-content-center">
-        <i class="fas fa-history"> Belum ada riwayat pembelian.</i> 
+            <i class="fas fa-history"> Belum ada riwayat transaksi.</i> 
         </div>
-        
     </div>
     @endif
 

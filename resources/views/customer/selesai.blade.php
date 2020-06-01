@@ -1,6 +1,30 @@
 @extends ('layouts.app')
 @section('title', 'Order')
+@section('navtext')
+<div class=" dropdown">
+    <a id="navbarDropdown" class="btn btn-outline-info dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+        {{ $user->username }} <span class="caret"></span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/customer/history">
+            {{ __('History') }}
+        </a>
+        <a class="dropdown-item" href="{{ route('profile') }}" >
+            {{ __('Edit Profile') }}
+        </a>
+        <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+        
 
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    </div>
+</div>
+@endsection
 @section('content')
 
 <div class="container d-flex justify-content-between mt-3">
@@ -8,7 +32,7 @@
         <h4>Order Berhasil</h4>
     </div>
     <div class="column">
-        <a href ="/" class="btn btn-primary">Kembali ke Halaman Awal</a>
+        <a href ="/" class="btn btn-outline-success">Kembali ke Halaman Awal</a>
     </div>
 </div>
 
@@ -16,8 +40,8 @@
   <div class="card">
     <div class="card-header">
       Invoice
-      <strong>{{ date('d-m-Y') }}</strong>
-      <span class="float-right"> <strong>Order ID:</strong> {{ $data['code'] }} </span>
+      <i>{{ date('d-m-Y') }}</i>
+      <span class="float-right"> <i>Order ID:</i> {{ $data['code'] }} </span>
 
     </div>
     <div class="card-body">
@@ -25,7 +49,7 @@
         <div class="col-sm-6">
           <h6 class="mb-3">Pembeli:</h6>
           <div>
-            <strong>{{ $user->firstname }} {{ $user->lastname }}</strong>
+            <i>{{ $user->firstname }} {{ $user->lastname }}</i>
           </div>
           <div>HP: {{ $user->phonenumber }}</div>
           <div>Email: {{ $user->email }}</div> <br>
@@ -34,7 +58,7 @@
         <div class="col-sm-6">
           <h6 class="mb-3">Penjual:</h6>
           <div>
-            <strong>{{ $pedagang->firstname }} {{ $pedagang->lastname }}</strong>
+            <i>{{ $pedagang->firstname }} {{ $pedagang->lastname }}</i>
           </div>
           <div>HP: {{ $pedagang->phonenumber }}</div>
           <div>Email: {{ $pedagang->email }}</div>
@@ -59,7 +83,7 @@
           <tbody>
             <tr>
               <td class="center">1</td>
-              <td class="left strong">{{  $data['namaikan'] }}</td>
+              <td class="left i">{{  $data['namaikan'] }}</td>
               <td class="left">{{  $data['catatan'] }}</td>
 
               <td class="right">{{  $data['harga'] }}</td>
@@ -83,10 +107,10 @@
           <table class="table table-clear">
             <tbody>
                 <td class="left">
-                  <strong>Total yang harus dibayar</strong>
+                  <i>Total yang harus dibayar</i>
                 </td>
                 <td class="right">
-                  <strong>Rp {{ $data['harga']*$data['bobot'] }}</strong>
+                  <i>Rp {{ $data['harga']*$data['bobot'] }}</i>
                 </td>
             </tbody>
           </table>

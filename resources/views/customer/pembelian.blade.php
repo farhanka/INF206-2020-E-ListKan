@@ -1,29 +1,29 @@
 @extends ('layouts.app')
-@section('title', 'Pembelian')
-
+@section('title', "Pembelian")
 
 @section('content')
-<div class="container d-flex justify-content-center align-items-center h-75">
-    <div class="col col-md-3 text-center">
-        <div class="card align-items-center">
-            <img class="card-img-top w-75" src="{{ asset('img/ikan_default.png') }}" alt="Card image cap">
+<div class="container">
+    <div class="row  justify-content-center  align-items-center">
+    <div class="col col-md-5 text-center">
+        <div class="card align-items-center my-3">
+            <img class="card_image img" src="{{ asset('img/ikan_default.png') }}" alt="Card image cap">
                 <div class="card-body">
                     <h4 class="card-title">{{ $a->name }}</h4>
                     <p class="card-text">Rp. {{ $ikan->harga_ikan }}/ kg </p>
                     <p class="card-text">Stok : {{ $ikan->stok }} kg </p>
+                    <p class="card-text">Di Upload Pada : {{ $ikan->created_at }} </p>
                     <p class="card-text">Penjual : {{ $pedagang->firstname }} {{ $pedagang->lastname }} </p>
                     <p class="card-text">HP : {{ $pedagang->phonenumber }} </p>
                     
                 </div>
         </div>
-        <br>
     </div>
     <div class=" col col-md-6">
         <form action="{{ route('order') }}" method="post"> 
         @csrf
         @method('post')
             <div class="form-group row">
-                <label for="jumlah" class="col-md-4 col-form-label text-md-right">Jumlah (kg)</label>
+                <label for="jumlah" class="col-md-4 col-form-label text-md-right">Jumlah (Kg)</label>
 
                 <div class="col-md-4">
                     <input  id="jumlah" type="text" class="form-control @error('jumlah') is-invalid @enderror" name="jumlah" autofocus>
@@ -38,7 +38,7 @@
             <div class="form-group row">
                 <label for="catatan" class="col-md-4 col-form-label text-md-right">Catatan</label>
                 <div class="col-md-4">
-                    <textarea name="catatan" id="catatan" cols="30" rows="10"></textarea>
+                    <textarea placeholder ='Katakan sesuatu pada penjual...' name="catatan" id="catatan" cols="30" rows="10"></textarea>
                 </div>
             </div>
             <input type="hidden" value="{{ $ikan->harga_ikan }}" name="harga">
@@ -50,6 +50,7 @@
             <input type="hidden" value="{{ $pedagang->id }}" name="penjual">
             
         </form>
+    </div>
     </div>
 </div>
 

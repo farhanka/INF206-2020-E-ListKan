@@ -2,7 +2,7 @@
 @section ('title','History')
 
 @section('content')
-
+    @if($seller->count() != 0)
     <div class="container col-6 my-4 mh-75">
     @foreach($seller as $s)
         <div class="card  mb-3">
@@ -30,5 +30,11 @@
         </div>
     @endforeach
     </div>
-
+    @else
+    <div class="container mh-75 d-flex justify-content-center align-items-center">
+        <div class="row justify-content-center">
+            <i class="fas fa-history"> Belum ada riwayat transaksi.</i> 
+        </div>
+    </div>
+    @endif
 @endsection

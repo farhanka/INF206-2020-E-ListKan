@@ -45,6 +45,7 @@
   <div class="form-group">
       <label for="type">Jenis</label>
       <select id="type" class="form-control" name="type">
+        
         <option selected>Ikan Air Laut</option>
         <option selected>Ikan Air Tawar</option>
       </select>
