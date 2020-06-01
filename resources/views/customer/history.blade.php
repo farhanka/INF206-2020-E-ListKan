@@ -28,17 +28,17 @@
 </div>
 @endsection
     @if($customer->count() != 0)
-    <div class="container col-6 my-4 ">
+    <div class="container mh-75 my-4 ">
     @foreach($customer as $s)
         <div class="card  mb-3">
-            <div class="card-header d-flex justify-content-between">
+            <div class="px-5 row card-header justify-content-between ">
                 <h5>Order ID : {{ $s->order_id }}</h5>
                 <h5>{{ $s->created_at }}</h5>
             </div>
 
             <div class="card-body">
-                <div class="row">
-                    <div class="col col-6 card-title">
+                <div class="row justify-content-center">
+                    <div class="col col-sm col-10 card-title">
                         Nama barang : {{ $s->ikan }} <br>
                         Jumlah : {{ $s->bobot }} kg <br>
                         Total Harga : Rp {{ $s->harga }}</p>
@@ -46,7 +46,7 @@
                         Pasar: {{ $s->pasar }}
                         </p>
                     </div>
-                    <div class="col-6 card-title bg-warning">
+                    <div class="mx-3 col col-9 col-sm card-title bg-info">
                         <p class="card-text" id="collapseExample"><i class="fas fa-sticky-note  ">  Catatan Pemesanan :</i> <strong class="font-italic"> {{ $s->catatan }} </strong></p>
                     </div>
                 </div>
