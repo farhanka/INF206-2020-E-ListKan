@@ -14,7 +14,7 @@ class User extends Authenticatable
     }
 
     public function ikan(){
-        return $this->belongsToMany('App\Ikan','ikan_user')->withpivot('harga_ikan','stok');
+        return $this->belongsToMany('App\Ikan','ikan_user')->withpivot('harga_ikan','stok','market_id','picture');
     }
     /**
      * The attributes that are mass assignable.
