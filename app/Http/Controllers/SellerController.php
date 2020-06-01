@@ -37,7 +37,7 @@ class SellerController extends Controller
     public function upload(Request $request)
     {
         $request->validate([
-            'name' => ['required','alpha'],
+            'name' => ['required','string'],
             'harga' => ['required','integer','min:1000'],
             'stok' => ['required', 'integer','min:1'],
         ]);
@@ -59,7 +59,7 @@ class SellerController extends Controller
                 'harga_ikan' => $request->harga,
                 'stok'=> $request->stok,
             ]);
-        return redirect('/home')->with('success','Ikan '.$request->name. ' berhasil ditambahkan');
+        return redirect('/home')->with('success', $request->name. ' berhasil ditambahkan');
     }
        
         
