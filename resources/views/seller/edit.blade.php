@@ -4,7 +4,7 @@
 @section('content')
 <div class="container d-flex justify-content-center align-items-center">
 
-<form class="bg-light p-5" action="{{ route('store') }} " method="post">
+<form class="bg-light p-5" action="{{ route('store') }} " method="post" enctype="multipart/form-data">
     @csrf
     @method('POST')
     <div class="text-center pb-3">
@@ -52,9 +52,15 @@
     </div>
   
   <div class="form-group">
-    <label for="exampleFormControlFile1">Gambar Ikan</label>
-    <input type="file" name="picture" class="form-control-file" id="exampleFormControlFile1">
+    <label for="picture">Gambar Ikan</label>
+    <input type="file" name="picture" class="form-control @error('picture') is-invalid @enderror" id="picture">
+    @error('picture')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+    @enderror
   </div>
+  
   <button type="submit" class="btn btn-primary float-right">Perbarui</button>
 </form>
 

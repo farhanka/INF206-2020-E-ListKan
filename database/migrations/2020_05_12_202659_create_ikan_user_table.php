@@ -17,6 +17,7 @@ class CreateIkanUserTable extends Migration
             $table->id();
             $table->string('ikan_id');
             $table->string('user_id');
+            $table->string('market_id');
             $table->integer('harga_ikan');
             $table->integer('stok');
             $table->string('picture')->nullable();

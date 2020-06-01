@@ -34,7 +34,8 @@
             @foreach($p->ikan as $i)
             <li class="cards_item   justify-content-center">
       <div class="card">
-        <div class="card_image"><img class="img" src="{{ asset('img/ikan_default.png') }}"></div>
+        <div class="card_image"><img class="img" src="@if($i->pivot->picture == null) {{ asset('img\ikan_default.png') }}
+                          @else {{ asset('img/') }}/{{ $i->pivot->picture }} @endif"></div>
         <div class="card_content">
           <h2 class="card_title">{{ $i->name }}</h2>
           <p class="card_text">Rp. {{ $i->pivot->harga_ikan }}/ kg</p>

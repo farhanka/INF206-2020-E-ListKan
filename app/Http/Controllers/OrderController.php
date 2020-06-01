@@ -18,7 +18,7 @@ class OrderController extends Controller
                     ->where('market_id', $id)
                     ->get();
         $market = Market::find($id);
-        
+  
         if($pedagang->count() != 0){
             return view('customer.daftarIkan',compact('user','pedagang','market'));
         }else{
