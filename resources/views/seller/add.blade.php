@@ -1,6 +1,31 @@
 @extends('layouts.app')
 @section('title', 'Tambah Ikan')
+@section('navtext')
+<div class=" dropdown">
+    <a id="navbarDropdown" class="btn btn-outline-info dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+    <i class="fas fa-user"></i> {{ $user->username }} <span class="caret"></span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+    <a class="dropdown-item" href="{{ route ('history') }}">
+    <i class="fas fa-history"></i> {{ __('History') }}
+        </a>
+        <a class="dropdown-item" href="{{ route('profile') }}"
+            >
+    <i class="fas fa-user-edit"></i> {{ __('Edit Profile') }}
+        </a>
+        <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+            <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+        </a>
+        
 
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    </div>
+</div>
+@endsection
 @section('content')
 <div class="container d-flex justify-content-center align-items-center my-3">
 <form class="bg-blue rounded p-5" action="{{ route('upload') }} " method="post">

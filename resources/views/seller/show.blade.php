@@ -1,6 +1,30 @@
 @extends ('layouts.app')
 @section ('title','ListKan')
+@section('navtext')
+<div class=" dropdown">
+    <a id="navbarDropdown" class="btn btn-outline-info dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+    <i class="fas fa-user"></i> {{ $user->username }} <span class="caret"></span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+    <a class="dropdown-item" href="{{ route ('history') }}">
+    <i class="fas fa-history"></i> {{ __('History') }}
+        </a>
+        <a class="dropdown-item" href="{{ route('profile') }}"
+            >
+    <i class="fas fa-user-edit"></i> {{ __('Edit Profile') }}
+        </a>
+        <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+            <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+        </a>
 
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    </div>
+</div>
+@endsection
 @section ('content')
 <div class="container h-75 p-4 text-center">
 @if (Session::has('edited'))
@@ -36,12 +60,12 @@
         <td>{{ $i->pivot->stok }}</td>
         <td>{{ $i->type }}</td>
         <td class="d-flex justify-content-center">   
-            <a href="/seller/edit/{{ $i->id }}" class="btn btn-success mr-2">Ubah</a>
+            <a href="/seller/edit/{{ $i->id }}" class="btn btn-success mr-2"><i class="far fa-edit"></i></a>
             
         <form action="/seller/hapus/{{ $i->id }}" method="post">
             @method('delete')
             @csrf
-            <input type="submit" class="btn btn-danger" value="Hapus">
+            <button type="submit" class="btn btn-danger" > <i class="far fa-trash-alt"></i> </button>
         </form>
          </td>
        </tr>

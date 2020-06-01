@@ -3,19 +3,20 @@
 @section('navtext')
 <div class=" dropdown">
     <a id="navbarDropdown" class="btn btn-outline-info dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-        {{ $user->username }} <span class="caret"></span>
+    <i class="fas fa-user"></i> {{ $user->username }} <span class="caret"></span>
     </a>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="/customer/history">
-            {{ __('History') }}
+    <a class="dropdown-item" href="/customer/history">
+    <i class="fas fa-history"></i> {{ __('History') }}
         </a>
-        <a class="dropdown-item" href="{{ route('profile') }}" >
-            {{ __('Edit Profile') }}
+        <a class="dropdown-item" href="{{ route('profile') }}"
+            >
+    <i class="fas fa-user-edit"></i> {{ __('Edit Profile') }}
         </a>
         <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
+            <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
         </a>
         
 
