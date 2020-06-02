@@ -1,30 +1,86 @@
-@extends('layouts.app')
-@section('title','ListKan')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('navtext')
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<a class="btn btn-info mr-2" href="{{ route('register') }}">Daftar</a>
-<a class="btn btn-primary" href="{{ route('login') }}">Masuk</a>
-@endsection
+  <title>ListKan</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
 
-@section('content')
-    <div class="jumbotron p-0">
-        <div class="container container-sm">
-            <h1 class="position-absolute py-5 text-lg">Andalan Untuk <br>Jual Beli Ikan. <br>
-            <p class="text-sm py-3">Dengan ListKan, semua jadi lebih mudah</p></h1>
-        </div>
-        <img class="img-fluid "src="{{ asset('img/jumbotron.png') }}" alt="gambar" >
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <!-- ======= Header ======= -->
+ <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#hero">ListKan</a></h1>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="{{ route('about') }}">tentang</a></li>
+          <li><a href="{{ route('login') }}">Masuk</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
     </div>
+  </header><!-- End Header -->
 
-    
-    <div class="container justify-content-center d-flex py-5">
-        <div class="col-7">
-            <h3 class="text-md">Selamat tinggal segala masalah</h3><br>
-                <p class="text-sm">Solusi terbaik untuk masalah jual beli ikan. <br>
-                Mulai dari list pasar, harga ikan hingga upload ikan untuk pedagang.</p>
-        </div>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <h1>Selamat Datang di ListKan</h1>
+      <h2>Andalan untuk jual beli ikan <br>Dengan ListKan, semua jadi lebih mudah.</h2>
+      <a href="{{ route('register') }}" class="btn-get-started">Buat Akun</a>
     </div>
-@endsection
+  </section><!-- End Hero Section -->
 
 
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+      Copyright &copy 2020  <strong>ListKan</strong>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
 
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/wow/wow.min.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/superfish/superfish.min.js"></script>
+  <script src="assets/vendor/hoverIntent/hoverIntent.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

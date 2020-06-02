@@ -2,7 +2,7 @@
 @section('title', 'Tambah Ikan')
 @section('navtext')
 <div class=" dropdown">
-    <a id="navbarDropdown" class="btn btn-outline-info dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+    <a id="navbarDropdown" class="btn btn-outline-light dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
     <i class="fas fa-user"></i> {{ $user->username }} <span class="caret"></span>
     </a>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
