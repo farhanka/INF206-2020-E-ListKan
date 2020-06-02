@@ -14,14 +14,11 @@ class OrderController extends Controller
     public function show($id){
         
         $user = auth()->user();
-        $pedagang = User::where('role','Seller')
-                    ->where('market_id', $id)
-                    ->get();
         $market = Market::find($id);
         $ikan = DB::table('ikan_user')->where('market_id', $id)->get();
   
         if($ikan->count() != 0){
-            return view('customer.daftarIkan',compact('user','pedagang','market'));
+            return view('customer.daftarIkan',compact('user','market','ikan'));
         }else{
             return redirect('home')->with('null','Belum ada data ikan di '.$market->name);
         }
