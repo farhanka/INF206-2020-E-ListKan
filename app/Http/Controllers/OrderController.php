@@ -18,16 +18,17 @@ class OrderController extends Controller
                     ->where('market_id', $id)
                     ->get();
         $market = Market::find($id);
-        
-        if($pedagang->count() != 0){
+        $ikan = DB::table('ikan_user')->where('market_id', $id)->get();
+  
+        if($ikan->count() != 0){
             return view('customer.daftarIkan',compact('user','pedagang','market'));
         }else{
-            return redirect('home')->with('null','Belum ada data ikan di pasar '.$id);
+            return redirect('home')->with('null','Belum ada data ikan di '.$market->name);
         }
     }
 
     public function menuBeli($user_id, $ikan_id){
-
+        $user = auth()->user();
         $pedagang = User::where('role','Seller')
                     ->where('id', $user_id)
                     ->first();
@@ -36,7 +37,7 @@ class OrderController extends Controller
         
         $a = Ikan::where('id', $ikan_id)->first();
 
-        return view('customer.pembelian',compact('pedagang','ikan','a'));
+        return view('customer.pembelian',compact('pedagang','ikan','a','user'));
     }
 
     public function order(Request $request){
