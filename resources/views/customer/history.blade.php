@@ -1,5 +1,5 @@
 @extends ('layouts.app')
-@section ('title','History')
+@section ('title','Riwayat Transaksi')
 @section('navtext')
 <div class=" dropdown">
     <a id="navbarDropdown" class="btn btn-outline-info dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -47,8 +47,8 @@
                         Pasar: {{ $s->pasar }}
                         </p>
                     </div>
-                    <div class="mx-3 col col-9 col-sm card-title bg-info">
-                        <p class="card-text" id="collapseExample"><i class="fas fa-sticky-note  ">  Catatan Pemesanan :</i> <strong class="font-italic"> {{ $s->catatan }} </strong></p>
+                    <div class="mx-3 col col-9 col-sm card-title bg-grey border rounded border-dark">
+                        <p class="card-text" id="collapseExample"><i class="fas fa-sticky-note">  Catatan Pemesanan :</i> <strong class="font-italic"> {{ $s->catatan }} </strong></p>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,10 @@
 @extends('layouts.app')
-@section('title', 'About')
+@section('title', 'Tentang')
 
 @section('content')
 <div class="container text-center d-flex justify-content-center align-items-center h-75">
-<h1 style="font-size:3vw;">RPL | Kelompok E - DY</h1>
+<button class="btn btn-outline-dark">
+    <i class="fas fa-code fa-2x"> RPL | Kelompok E - DY </i>
+</button>
 </div>
 @endsection

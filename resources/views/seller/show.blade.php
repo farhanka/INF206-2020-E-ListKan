@@ -1,5 +1,5 @@
 @extends ('layouts.app')
-@section ('title','ListKan')
+@section ('title','ListKan Pedagang')
 @section('navtext')
 <div class=" dropdown">
     <a id="navbarDropdown" class="btn btn-outline-info dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -73,6 +73,7 @@
 
         @else
         <tr><td colspan="5"><h5>Tidak ada data ikan</h5></td></tr>
+        <tr><td colspan="5"><a href="/home"><i class="btn btn-outline-dark fas fa-home fa-3x"></i></a></td></tr>
         @endif
     </table> 
 </div>

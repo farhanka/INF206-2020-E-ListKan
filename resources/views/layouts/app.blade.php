@@ -10,9 +10,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <link href="{{ asset('css\simple-line-icons.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('css\app.css') }}">
-    <link rel="stylesheet" href="{{ asset('fontawesome\css\all.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css\all.min.css') }}"> -->
+    <link rel="stylesheet" href="{{ asset('fontawesome\css\all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css\card.css') }}">
+    <link href="{{ ('css/landing-page.min.css') }}" rel="stylesheet">
     <title>@yield('title')</title>
     
   </head>
@@ -46,35 +49,3 @@
     
   </body>
 </html>
-
-
-<style>
-
-.text-lg{
-    font-size: 6vw;
-}
-
-.text-sm{
-    font-size: 2vw;
-}
-
-.text-md{
-    font-size: 3vw;
-}
-
-body{
-    height: 100vh;
-}
-
-.copyright{
-    align-items:center;
-    color: white;
-    font-size: 1.5vw;
-    text-align: center;
-    display:flex;
-    justify-content: center;
-    height: 20vh;
-    bottom: 0px;
-}
-
-</style>

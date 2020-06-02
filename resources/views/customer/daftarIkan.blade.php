@@ -33,8 +33,8 @@
     <div class="row  justify-content-center">
         @foreach($pedagang as $p)
             @foreach($p->ikan as $i)
-            <li class="cards_item   justify-content-center">
-      <div class="card">
+            <li class="cards_item justify-content-center">
+      <div class="card border-dark">
         <div class="card_image"><img class="img" src="@if($i->pivot->picture == null) {{ asset('img/ikan_default.png') }}
                           @else {{ asset('img/data') }}/{{ $i->pivot->picture }} @endif"></div>
         <div class="card_content">
