@@ -1,5 +1,5 @@
 @extends ('layouts.app')
-@section ('title','History')
+@section ('title','Riwayat Transaksi')
 @section('navtext')
 <div class=" dropdown">
     <a id="navbarDropdown" class="btn btn-outline-info dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -30,7 +30,7 @@
     @if($seller->count() != 0)
     <div class="container mh-75 my-4 ">
     @foreach($seller as $s)
-        <div class="card  mb-3">
+        <div class="card mb-3">
         <div class="px-5 row card-header justify-content-between ">
           <h5>Order ID : {{ $s->order_id }}</h5>
           <h5>{{ $s->created_at }}</h5>
@@ -45,10 +45,8 @@
                         <p class="card-title">Nama Pembeli : {{ $s->pembeli }}</p>
 
                     </div>
-                    <div class="mx-3 col col-9 col-sm card-title bg-info">
-                    
-                    <p class="card-text">Catatan Pemesanan : <strong class="font-italic">{{ $s->catatan }}.</strong></p>
-                    
+                    <div class="mx-3 col col-9 col-sm card-title bg-grey border rounded border-dark">
+                    <p class="card-text" id="collapseExample"><i class="fas fa-sticky-note  ">  Catatan Pemesanan :</i> <strong class="font-italic"> {{ $s->catatan }} </strong></p>
                     </div>
                 </div>
             </div>

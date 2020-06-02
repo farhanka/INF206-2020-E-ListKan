@@ -1,5 +1,5 @@
 @extends ('layouts.app')
-@section('title', 'Order')
+@section('title', 'Invoice')
 @section('navtext')
 <div class=" dropdown">
     <a id="navbarDropdown" class="btn btn-outline-info dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -38,7 +38,7 @@
 </div>
 
 <div class="container my-4">
-  <div class="card">
+  <div class="card border-dark">
     <div class="card-header">
       Invoice
       <i>{{ date('d-m-Y') }}</i>

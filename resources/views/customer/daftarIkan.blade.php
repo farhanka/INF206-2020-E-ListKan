@@ -31,22 +31,19 @@
 <div class="container text-center mh-75">
         <h3 class="py-4"> {{ $market->name }} </h3>
     <div class="row  justify-content-center">
-        @foreach($pedagang as $p)
-            @foreach($p->ikan as $i)
-            <li class="cards_item   justify-content-center">
-      <div class="card">
-        <div class="card_image"><img class="img" src="@if($i->pivot->picture == null) {{ asset('img/ikan_default.png') }}
-                          @else {{ asset('img/data') }}/{{ $i->pivot->picture }} @endif"></div>
+            @foreach($ikan as $i)
+            <li class="cards_item justify-content-center">
+      <div class="card border-dark">
+        <div class="card_image"><img class="img" src="@if($i->picture == null) {{ asset('img/ikan_default.png') }}
+                          @else {{ asset('img/data') }}/{{ $i->picture }} @endif"></div>
         <div class="card_content">
-          <h2 class="card_title">{{ $i->name }}</h2>
-          <p class="card_text">Rp. {{ $i->pivot->harga_ikan }}/ kg</p>
-          <p class="card_text">Tersedia: {{ $i->pivot->stok }} kg</p>
-          <a href="/customer/beli/{{ $i->pivot->user_id }}/{{ $i->pivot->ikan_id }}" class=" btn btn-block @if ($i->pivot->stok == 0) disabled btn-outline-light @else btn-success @endif">Beli</a>
+          <p class="card_text">Rp. {{ $i->harga_ikan }}/ kg</p>
+          <p class="card_text">Tersedia: {{ $i->stok }} kg</p>
+          <a href="/customer/beli/{{ $i->user_id }}/{{ $i->ikan_id }}" class=" btn btn-block @if ($i->stok == 0) disabled btn-outline-light @else btn-success @endif">Beli</a>
         </div>
       </div>
     </li>
             @endforeach
-        @endforeach
     </div>
 </div>
 @endsection

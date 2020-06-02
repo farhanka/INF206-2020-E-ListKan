@@ -1,5 +1,5 @@
 @extends ('layouts.app')
-@section('title', 'Home - Pengunjung')
+@section('title', 'ListKan')
  
 
 @section('navtext')
@@ -30,14 +30,8 @@
 @endsection
 
 @section('content')
-<div class="jumbotron p-0 h-25 text-center d-flex align-items-center">
-    <div class="container container-sm">
-        <h1 >ListKan</h1>
-        Selamat Datang {{ $user->firstname }} <br>
-        {{ date('d-m-Y h:i') }}
-    </div>
-</div>
-<div class="container">
+<header class="masthead text-white text-center">
+    <div class="overlay">
 @if (Session::has('null'))
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
         {{ Session::get('null') }}
@@ -46,8 +40,35 @@
         </button>
     </div>
 @endif
-</div>
-<div class="container text-center justify-content-center align-items-center mh-50">
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5">ListKan</h1>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <h3>Selamat Datang!</h3>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <h3>{{ $user->firstname }}</h3>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <h3>{{ date('d-m-Y ~ h:i') }}</h3>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+<div class="container my-5 text-center justify-content-center align-items-center mh-50">
 @if($market->count() != 0)
     <h4>Pilih Pasar</h4>
         <div class="row">
@@ -64,5 +85,4 @@
     <h3> Belum ada data apapun disini <br> Silakan kembali di lain waktu. </h3>
 @endif
 </div>
-
 @endsection

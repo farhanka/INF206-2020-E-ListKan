@@ -80,7 +80,7 @@ class UserController extends Controller
         //     'role' => $request->role
         // ]);
 
-        return redirect('/profile')->with('status','Profile Updated Successfully!.');
+        return redirect('/home')->with('status','Profil Anda telah diperbarui.');
     }
 
  

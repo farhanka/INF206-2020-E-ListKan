@@ -31,7 +31,7 @@
 <div class="container">
     <div class="row  justify-content-center  align-items-center">
     <div class="col col-md-5 text-center">
-        <div class="card align-items-center my-3">
+        <div class="card border-dark align-items-center my-3">
             <img class="card_image img" src="@if($ikan->picture == null) {{ asset('img\ikan_default.png') }}
                           @else {{ asset('img/data/') }}/{{ $ikan->picture }} @endif" alt="Card image cap">
                 <div class="card-body">
@@ -40,8 +40,7 @@
                     <p class="card-text">Stok : {{ $ikan->stok }} kg </p>
                     <p class="card-text">Di Upload Pada : {{ $ikan->created_at }} </p>
                     <p class="card-text">Penjual : {{ $pedagang->firstname }} {{ $pedagang->lastname }} </p>
-                    <p class="card-text">HP : {{ $pedagang->phonenumber }} </p>
-                    
+                    <p class="card-text">HP : {{ $pedagang->phonenumber }} </p> 
                 </div>
         </div>
     </div>
