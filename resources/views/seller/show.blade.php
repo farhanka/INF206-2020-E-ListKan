@@ -52,24 +52,24 @@
                 <th>Aksi</th>
             </tr>
        </thead>
-       @if($user->ikan->count() != 0)
-       @foreach($user->ikan as $i)
+       @if($ikan->count() != 0)
+        @for($i= 0; $i < $ikan->count(); $i++)
        <tr>
-        <td>{{ $i->name }}</td>
-        <td>{{ $i->pivot->harga_ikan }}</td>
-        <td>{{ $i->pivot->stok }}</td>
-        <td>{{ $i->type }}</td>
+        <td>{{ $nt[$i]->name }}</td>
+        <td>{{ $ikan[$i]->harga_ikan }}</td>
+        <td>{{ $ikan[$i]->stok }}</td>
+        <td>{{ $nt[$i]->type }}</td>
         <td class="d-flex justify-content-center">   
-            <a href="/seller/edit/{{ $i->id }}" class="btn btn-success mr-2"><i class="far fa-edit"></i></a>
+            <a href="/seller/edit/{{ $ikan[$i]->id }}" class="btn btn-success mr-2"><i class="far fa-edit"></i></a>
             
-        <form action="/seller/hapus/{{ $i->id }}" method="post">
+        <form action="/seller/hapus/{{ $ikan[$i]->id }}" method="post">
             @method('delete')
             @csrf
             <button type="submit" class="btn btn-danger" > <i class="far fa-trash-alt"></i> </button>
         </form>
          </td>
        </tr>
-       @endforeach
+       @endfor
 
         @else
         <tr><td colspan="5"><h5>Tidak ada data ikan</h5></td></tr>
