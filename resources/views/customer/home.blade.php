@@ -70,11 +70,11 @@
 
 <div class="container my-5 text-center justify-content-center align-items-center mh-50">
 @if($market->count() != 0)
-    <h4>Pilih Pasar</h4>
+    <h4>Dimana kamu ingin membeli ikan?</h4>
         <div class="row">
         @foreach($market as $m)
             <div class="col col-md col-6">
-                <a href="customer/pasar/{{ $m->id }}">
+                <a class="btn text-dark   border "href="customer/pasar/{{ $m->id }}">
                     <img alt="..." src="{{ asset('img\pasar.png') }}" id="ikonpasar">
                     <h5 class="p-0">{{ $m->name }}</h5>
                 </a>

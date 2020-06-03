@@ -28,11 +28,20 @@
 @endsection
 @section('content')
 <div class="container d-flex justify-content-center align-items-center my-3">
+
 <form class="bg-grey border border-dark rounded p-5" action="{{ route('upload') }} " method="post">
     @csrf
     <!-- @method('POST') -->
     <div class="text-center pb-3">
         <h4>Upload Ikan</h4>
+        @if (Session::has('duplicate'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ Session::get('duplicate') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
     </div>
     
   <div class="form-group">

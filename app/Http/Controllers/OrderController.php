@@ -16,9 +16,13 @@ class OrderController extends Controller
         $user = auth()->user();
         $market = Market::find($id);
         $ikan = DB::table('ikan_user')->where('market_id', $id)->get();
+        $nt = array();
+        for ($i=0; $i<$ikan->count() ; $i++) { 
+            $n[$i] = DB::table('ikans')->where('id', $ikan[$i]->ikan_id)->first();
+        }
   
         if($ikan->count() != 0){
-            return view('customer.daftarIkan',compact('user','market','ikan'));
+            return view('customer.daftarIkan',compact('user','market','ikan','n'));
         }else{
             return redirect('home')->with('null','Belum ada data ikan di '.$market->name);
         }
