@@ -54,6 +54,8 @@ class SellerController extends Controller
         $user = auth()->user();
         $ikan = Ikan::where('name', $request->name)->first();
         
+        if(DB::table('ikan_user')->where('ikan_id', $ikan->id)
+            ->where('user_id', $user->id)->first() == null){
             DB::table('ikan_user')->insert([
                 'user_id' => $user->id,
                 'ikan_id' => $ikan->id,
@@ -62,7 +64,10 @@ class SellerController extends Controller
                 'stok'=> $request->stok,
                 'created_at' => now(),
             ]);
-        return redirect('/home')->with('success', $request->name. ' berhasil ditambahkan');
+            return redirect('/home')->with('success', $request->name. ' berhasil ditambahkan');
+            }else{
+                return redirect()->back()->with('duplicate', $request->name.' sudah pernah Anda upload.');
+            }
     }
        
         
@@ -76,7 +81,11 @@ class SellerController extends Controller
     public function show()
     {
         $user = auth()->user();
-        return view('seller.show',compact('user'));
+        $ikan = DB::table('ikan_user')->where('market_id', $user->market_id)->get();
+        for ($i=0; $i<$ikan->count() ; $i++) { 
+            $nt[$i] = DB::table('ikans')->where('id', $ikan[$i]->ikan_id)->first();
+        }
+        return view('seller.show',compact('user','ikan','nt'));
     }
 
     /**
