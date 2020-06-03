@@ -38,7 +38,7 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li><a href="{{ route('about') }}">tentang</a></li>
+          <li><a href="{{ route('about') }}">About</a></li>
           <li><a href="{{ route('login') }}">Masuk</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
