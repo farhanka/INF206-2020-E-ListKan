@@ -82,7 +82,7 @@ class SellerController extends Controller
     {
         $user = auth()->user();
         $ikan = DB::table('ikan_user')->where('market_id', $user->market_id)->get();
-        $nt = '';
+        $nt = array();
         for ($i=0; $i<$ikan->count() ; $i++) { 
             $nt[$i] = DB::table('ikans')->where('id', $ikan[$i]->ikan_id)->first();
         }

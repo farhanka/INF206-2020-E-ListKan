@@ -16,7 +16,7 @@ class OrderController extends Controller
         $user = auth()->user();
         $market = Market::find($id);
         $ikan = DB::table('ikan_user')->where('market_id', $id)->get();
-        $nt = ' ';
+        $nt = array();
         for ($i=0; $i<$ikan->count() ; $i++) { 
             $n[$i] = DB::table('ikans')->where('id', $ikan[$i]->ikan_id)->first();
         }
