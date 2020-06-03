@@ -34,13 +34,13 @@
         @for($i= 0; $i < $ikan->count(); $i++)
             <li class="cards_item justify-content-center">
       <div class="card border-dark">
-        <div class="card_image"><img class="img" src="@if($i->picture == null) {{ asset('img/ikan_default.png') }}
-                          @else {{ asset('img/data') }}/{{ $i->picture }} @endif"></div>
+        <div class="card_image"><img class="img" src="@if($ikan[$i]->picture == null) {{ asset('img/ikan_default.png') }}
+                          @else {{ asset('img/data') }}/{{ $ikan[$i]->picture }} @endif"></div>
         <div class="card_content">
           <p class="card_text">{{ $n[$i]->name }}</p>
           <p class="card_text">Rp. {{ $ikan[$i]->harga_ikan }}/ kg</p>
           <p class="card_text">Tersedia: {{ $ikan[$i]->stok }} kg</p>
-          <a href="/customer/beli/{{ $i->user_id }}/{{ $i->ikan_id }}" class=" btn btn-block @if ($i->stok == 0) disabled btn-outline-light @else btn-success @endif">Beli</a>
+          <a href="/customer/beli/{{ $ikan[$i]->user_id }}/{{ $ikan[$i]->ikan_id }}" class=" btn btn-block @if ($ikan[$i]->stok == 0) disabled btn-outline-light @else btn-success @endif">Beli</a>
         </div>
       </div>
     </li>
