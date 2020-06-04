@@ -1,77 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login Page</title>
+@extends('layouts.app')
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
- 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
+@section('content')
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-dark">
+                <div class="card-header bg-dark text-white">{{ __('Login - ListKan') }}</div>
 
-</head>
-<body>
-<div class="container d-flex justify-content-center pt-5 hi-95">
-	<div class="d-flex justify-content-center">
-		<div class="card">
-			<div class="card-header text-center">
-			
-			@if ( Session::has('message'))
-    		<div class="alert alert-success" role="alert">
-        		{{ Session::get('message') }}
-    		</div>
-			@endif
-				<h3>Login - ListKan</h3>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
 
-			</div>
-			<div class="card-body">
-				<form method="POST" action="{{ route('login') }}">
-                @csrf
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <div class="form-group row">
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+
+                                @error('username')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-dark ">
+                                    {{ __('Login') }}
+                                </button>
+
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Lupa Password?') }}
+                                    </a>
+                                @endif
+                            </div>
 						</div>
-                        <input placeholder="username" id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
-
-                            @error('username')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						<div class="form-group row mt-4">
+                            <div class="col-md-8 offset-md-4">
+                                <a href="{{ route('register') }}" class="btn btn-outline-dark ">
+                                    {{ __('Saya Belum Punya Akun') }}
+                                </a>
+                            </div>
 						</div>
-						<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="password" required autocomplete="current-password">
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-					</div>
-
-                    @if (Route::has('password.request'))
-                    <div class="d-flex justify-content-center float-left">
-                        <a class="text-warning" href="{{ route('password.request') }}">{{ __('Lupa Password?') }}</a>
-                    </div>
-                    @endif
-
-					<div class="form-group">
-                        <button type="submit" class="btn btn-primary login_btn float-right">
-                            {{ __('Login') }}
-                        </button>
-					</div>
-				</form>
-			</div>
-			<div class="card-footer ">
-                <div class="d-flex justify-content-center">
-					<a class="text-warning" href="{{ route('register') }}">Belum punya akun?</a>
+                    </form>
                 </div>
-                <hr>
-
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 </div>
-</body>
-    <footer class=" text-center text-warning">Listkan &copy 2020</footer>
-</html>
+@endsection

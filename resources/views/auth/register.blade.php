@@ -1,27 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Register Page</title>
+@extends('layouts.app')
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
- 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
+@section('content')
+<div class="container mg-75 py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-dark">
+                <div class="card-header bg-dark text-white">{{ __('Register - ListKan') }}</div>
 
-</head>
-<body>
-
-<div class="container  pt-5 hi-95">
-    <div class="d-flex justify-content-center">
-        <div class="container">
-            <div class="card mh-75 w-100 ">
-                <div class="card-header text-center ">
-                    <h3>Register - ListKan</h3>
-                </div>
+                <div class="card-body">
                 <form method="POST" action="{{ route('register') }}">
                 <div class="card-body">
                     @csrf
                     <div class="row">
-                        <div class="col"> <!-- col -->
+                        <div class="col col-12 col-sm"> <!-- col -->
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"></span>
@@ -74,7 +65,7 @@
                             
                         </div><!-- col -->
 
-                        <div class="col">
+                        <div class="col col-12 col-sm">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"></span>
@@ -127,20 +118,18 @@
                         </div> <!-- col -->
                     </div>
                             
-                            <button type="submit" class="btn btn-block login_btn float-right  ">
+                            <button type="submit" class="btn btn-block btn-dark  ">
                                         {{ __('Register') }}
                             </button>
+                            <a href="{{ route('login') }}" class="btn btn-block btn-outline-dark  ">
+                                        {{ __('Saya Sudah Punya Akun') }}
+                            </a>
                         </div>
                     </div>
                 </form>
-
-                <div class="container mt-3">
-                        <a href="{{ route('login') }}" class="btn btn-outline-warning">Sudah punya Akun</a>
                 </div>
-            </div>   
-        </div> <!-- container kosong -->
+            </div>
+        </div>
     </div>
 </div>
-</body>
-<footer class=" text-center text-warning">Listkan &copy 2020</footer>
-</html>
+@endsection
