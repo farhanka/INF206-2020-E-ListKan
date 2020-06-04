@@ -101,7 +101,7 @@ class SellerController extends Controller
         $user = auth()->user();
         $x = DB::table('ikan_user')
             ->where('user_id', $user->id)
-            ->where('ikan_id', $ikan->id)->first();
+            ->where('ikan_id', $id)->first();
         return view('seller.edit',compact('ikan','x'));
     }
 
