@@ -5,10 +5,8 @@
 html,body{
 /* background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg'); */
 /* background-image: url('/img/auth-background.jpg'); */
-background-repeat: no-repeat;
-height: 100%;
+max-height: 100vh;
 font-family: 'Numans', sans-serif;
-background-size:auto;
 background-color: rgb(85, 85, 85);
 }
 
