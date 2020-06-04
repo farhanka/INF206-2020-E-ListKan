@@ -60,9 +60,9 @@
         <td>{{ $ikan[$i]->stok }}</td>
         <td>{{ $nt[$i]->type }}</td>
         <td class="d-flex justify-content-center">   
-            <a href="/seller/edit/{{ $nt[$i]->id }}" class="btn btn-success mr-2"><i class="far fa-edit"></i></a>
+            <a href="/seller/edit/{{ $ikan[$i]->ikan_id}}" class="btn btn-success mr-2"><i class="far fa-edit"></i></a>
             
-        <form action="/seller/hapus/{{ $nt[$i]->id }}" method="post">
+        <form action="/seller/hapus/{{ $ikan[$i]->ikan_id }}" method="post">
             @method('delete')
             @csrf
             <button type="submit" class="btn btn-danger" > <i class="far fa-trash-alt"></i> </button>
