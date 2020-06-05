@@ -49,3 +49,15 @@
     
   </body>
 </html>
+<script>
+
+function myFunction() {
+  var desc = document.getElementById("listkan");
+  var nama = document.getElementById("collapseExample");
+  if (nama.style.display !== "none") {
+    desc.style.display = "block";
+  } else if (desc.style.display !== "none") {
+    nama.style.display = "block";
+  }
+}
+</script>
